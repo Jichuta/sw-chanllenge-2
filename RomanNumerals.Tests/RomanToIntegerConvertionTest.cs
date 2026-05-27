@@ -21,5 +21,22 @@ namespace RomanNumerals.Tests
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [InlineData("XI", 11)]
+        [InlineData("XXX", 30)]
+        [InlineData("XXXIV", 34)]
+        [InlineData("XL", 40)]
+        [InlineData("XLV", 45)]
+        [InlineData("XLIX", 49)]
+        [InlineData("L", 50)]
+        public void ConvertToInteger_ShouldReturnCorrectIntegerFrom11To50(string roman, int expected)
+        {
+            // Act
+            var result = RomanNumeralConverter.ConvertToInteger(roman);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }
