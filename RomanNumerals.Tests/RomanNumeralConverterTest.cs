@@ -60,6 +60,26 @@ namespace RomanNumerals.Tests
         }
 
         [Theory]
+        [InlineData(101, "CI")]
+        [InlineData(115, "CXV")]
+        [InlineData(150, "CL")]
+        [InlineData(200, "CC")]
+        [InlineData(300, "CCC")]
+        [InlineData(399, "CCCXCIX")]
+        [InlineData(400, "CD")]
+        [InlineData(449, "CDXLIX")]
+        [InlineData(499, "CDXCIX")]
+        [InlineData(500, "D")]
+        public void ConvertToRoman_ShouldReturnCorrectRomanNumeralFrom101To500(int number, string expected)
+        {
+            // Act
+            var result = RomanNumeralConverter.ConvertToRoman(number);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
         [InlineData(101)]
         [InlineData(115)]
         public void ConvertToRoman_ShouldThrowExceptionForOutOfRangeNumbers(int number)
