@@ -86,5 +86,10 @@ namespace RomanNumerals
 
             throw new ArgumentOutOfRangeException(nameof(number), "Number must be greater than or equal to 1.");
         }
+
+        public static int ConvertToInteger(string roman)
+        {
+            return 1;
+        }
     }
 }
