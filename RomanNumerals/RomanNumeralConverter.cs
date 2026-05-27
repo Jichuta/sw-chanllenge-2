@@ -4,6 +4,26 @@ namespace RomanNumerals
     {
         public static string ConvertToRoman(int number)
         {
+            if (number < 0 || number > 50)
+            {
+                throw new ArgumentOutOfRangeException(nameof(number), "Number must be between 1 and 50.");
+            }
+
+            if (number == 50)
+            {
+                return "L";
+            }
+
+            if (number >= 40)
+            {
+                return "XL" + ConvertToRoman(number - 40);
+            }
+
+            if (number >= 10)
+            {
+                return "X" + ConvertToRoman(number - 10);
+            }
+
             switch (number)
             {
                 case 1:

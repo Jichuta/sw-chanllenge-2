@@ -1,0 +1,82 @@
+@startuml roman_1_to_1000
+title Convertir numero romano - rango 1 a 1000
+
+start
+:Recibir numero entero;
+
+if (numero < 1 o numero > 1000?) then (si)
+  :Mostrar error de rango;
+  stop
+endif
+
+:resultado = "";
+
+while (numero >= 1000?) is (si)
+  :resultado += "M";
+  :numero -= 1000;
+endwhile (no)
+
+while (numero >= 900?) is (si)
+  :resultado += "CM";
+  :numero -= 900;
+endwhile (no)
+
+while (numero >= 500?) is (si)
+  :resultado += "D";
+  :numero -= 500;
+endwhile (no)
+
+while (numero >= 400?) is (si)
+  :resultado += "CD";
+  :numero -= 400;
+endwhile (no)
+
+while (numero >= 100?) is (si)
+  :resultado += "C";
+  :numero -= 100;
+endwhile (no)
+
+while (numero >= 90?) is (si)
+  :resultado += "XC";
+  :numero -= 90;
+endwhile (no)
+
+while (numero >= 50?) is (si)
+  :resultado += "L";
+  :numero -= 50;
+endwhile (no)
+
+while (numero >= 40?) is (si)
+  :resultado += "XL";
+  :numero -= 40;
+endwhile (no)
+
+while (numero >= 10?) is (si)
+  :resultado += "X";
+  :numero -= 10;
+endwhile (no)
+
+while (numero >= 9?) is (si)
+  :resultado += "IX";
+  :numero -= 9;
+endwhile (no)
+
+while (numero >= 5?) is (si)
+  :resultado += "V";
+  :numero -= 5;
+endwhile (no)
+
+while (numero >= 4?) is (si)
+  :resultado += "IV";
+  :numero -= 4;
+endwhile (no)
+
+while (numero >= 1?) is (si)
+  :resultado += "I";
+  :numero -= 1;
+endwhile (no)
+
+:Devolver resultado;
+stop
+
+@enduml

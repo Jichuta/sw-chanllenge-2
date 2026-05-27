@@ -25,8 +25,22 @@ namespace RomanNumerals.Tests
         }
 
         [Theory]
-        [InlineData(11)]
-        [InlineData(15)]
+        [InlineData(34, "XXXIV")]
+        [InlineData(40, "XL")]
+        [InlineData(45, "XLV")]
+        [InlineData(50, "L")]
+        public void ConvertToRoman_ShouldReturnCorrectRomanNumeralForTens(int number, string expected)
+        {
+            // Act
+            var result = RomanNumeralConverter.ConvertToRoman(number);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData(51)]
+        [InlineData(115)]
         public void ConvertToRoman_ShouldThrowExceptionForOutOfRangeNumbers(int number)
         {
             // Act & Assert

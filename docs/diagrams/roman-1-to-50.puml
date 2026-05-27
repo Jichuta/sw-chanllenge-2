@@ -1,0 +1,52 @@
+@startuml roman_1_to_50
+title Convertir numero romano - rango 1 a 50
+
+start
+:Recibir numero entero;
+
+if (numero < 1 o numero > 50?) then (si)
+  :Mostrar error de rango;
+  stop
+endif
+
+:resultado = "";
+
+while (numero >= 50?) is (si)
+  :resultado += "L";
+  :numero -= 50;
+endwhile (no)
+
+while (numero >= 40?) is (si)
+  :resultado += "XL";
+  :numero -= 40;
+endwhile (no)
+
+while (numero >= 10?) is (si)
+  :resultado += "X";
+  :numero -= 10;
+endwhile (no)
+
+while (numero >= 9?) is (si)
+  :resultado += "IX";
+  :numero -= 9;
+endwhile (no)
+
+while (numero >= 5?) is (si)
+  :resultado += "V";
+  :numero -= 5;
+endwhile (no)
+
+while (numero >= 4?) is (si)
+  :resultado += "IV";
+  :numero -= 4;
+endwhile (no)
+
+while (numero >= 1?) is (si)
+  :resultado += "I";
+  :numero -= 1;
+endwhile (no)
+
+:Devolver resultado;
+stop
+
+@enduml
