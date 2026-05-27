@@ -80,8 +80,27 @@ namespace RomanNumerals.Tests
         }
 
         [Theory]
-        [InlineData(501)]
-        [InlineData(615)]
+        [InlineData(501, "DI")]
+        [InlineData(615, "DCXV")]
+        [InlineData(700, "DCC")]
+        [InlineData(800, "DCCC")]
+        [InlineData(849, "DCCCXLIX")]
+        [InlineData(899, "DCCCXCIX")]
+        [InlineData(900, "CM")]
+        [InlineData(999, "CMXCIX")]
+        [InlineData(1000, "M")]
+        public void ConvertToRoman_ShouldReturnCorrectRomanNumeralFrom501To1000(int number, string expected)
+        {
+            // Act
+            var result = RomanNumeralConverter.ConvertToRoman(number);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData(1001)]
+        [InlineData(1250)]
         public void ConvertToRoman_ShouldThrowExceptionForOutOfRangeNumbers(int number)
         {
             // Act & Assert
