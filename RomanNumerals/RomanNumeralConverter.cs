@@ -9,14 +9,29 @@ namespace RomanNumerals
                 return string.Empty;
             }
 
-            if (number > 500)
+            if (number > 1000)
             {
-                throw new ArgumentOutOfRangeException(nameof(number), "Number must be equal or less than 500.");
+                throw new ArgumentOutOfRangeException(nameof(number), "Number must be equal or less than 1000.");
             }
 
-            if (number == 500)
+            if (number == 1000)
             {
-                return "D";
+                return "M";
+            }
+
+            if (number >= 1000)
+            {
+                return "M" + ConvertToRoman(number - 1000);
+            }
+
+            if (number >= 900)
+            {
+                return "CM" + ConvertToRoman(number - 900);
+            }
+
+            if (number >= 500)
+            {
+                return "D" + ConvertToRoman(number - 500);
             }
 
             if (number >= 400)
