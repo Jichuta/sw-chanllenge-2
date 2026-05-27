@@ -9,14 +9,24 @@ namespace RomanNumerals
                 return string.Empty;
             }
 
-            if (number > 100)
+            if (number > 500)
             {
-                throw new ArgumentOutOfRangeException(nameof(number), "Number must be equal or less than 100.");
+                throw new ArgumentOutOfRangeException(nameof(number), "Number must be equal or less than 500.");
             }
 
-            if (number == 100)
+            if (number == 500)
             {
-                return "C";
+                return "D";
+            }
+
+            if (number >= 400)
+            {
+                return "CD" + ConvertToRoman(number - 400);
+            }
+
+            if (number >= 100)
+            {
+                return "C" + ConvertToRoman(number - 100);
             }
 
             if (number >= 90)
