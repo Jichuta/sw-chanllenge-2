@@ -9,9 +9,9 @@ namespace RomanNumerals
                 return string.Empty;
             }
 
-            if (number < 1 || number > 100)
+            if (number > 100)
             {
-                throw new ArgumentOutOfRangeException(nameof(number), "Number must be between 1 and 100.");
+                throw new ArgumentOutOfRangeException(nameof(number), "Number must be equal or less than 100.");
             }
 
             if (number == 100)
@@ -39,31 +39,27 @@ namespace RomanNumerals
                 return "X" + ConvertToRoman(number - 10);
             }
 
-            switch (number)
+            if (number >= 9)
             {
-                case 1:
-                    return "I";
-                case 2:
-                    return "II";
-                case 3:
-                    return "III";
-                case 4:
-                    return "IV";
-                case 5:
-                    return "V";
-                case 6:
-                    return "VI";
-                case 7:
-                    return "VII";
-                case 8:
-                    return "VIII";
-                case 9:
-                    return "IX";
-                case 10:
-                    return "X";
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(number), "Number must be between 1 and 10.");
+                return "IX" + ConvertToRoman(number - 9);
             }
+
+            if (number >= 5)
+            {
+                return "V" + ConvertToRoman(number - 5);
+            }
+
+            if (number >= 4)
+            {
+                return "IV" + ConvertToRoman(number - 4);
+            }
+
+            if (number >= 1)
+            {
+                return "I" + ConvertToRoman(number - 1);
+            }
+
+            throw new ArgumentOutOfRangeException(nameof(number), "Number must be greater than or equal to 1.");
         }
     }
 }
