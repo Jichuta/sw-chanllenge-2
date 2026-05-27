@@ -2,6 +2,28 @@ namespace RomanNumerals
 {
     public static class RomanNumeralConverter
     {
+        public static readonly (string Roman, int Value)[] RomanNumerals = new (string, int)[]
+        {
+            ("M", 1000),
+            ("D", 500),
+            ("C", 100),
+            ("L", 50),
+            ("X", 10),
+            ("V", 5),
+            ("I", 1)
+        };
+
+        public static readonly Dictionary<string, int> RomanToIntegerMap = new Dictionary<string, int>
+        {
+            { "I", 1 },
+            { "V", 5 },
+            { "X", 10 },
+            { "L", 50 },
+            { "C", 100 },
+            { "D", 500 },
+            { "M", 1000 }
+        };
+
         public static string ConvertToRoman(int number)
         {
             if (number == 0)
@@ -89,30 +111,47 @@ namespace RomanNumerals
 
         public static int ConvertToInteger(string roman)
         {
-            switch (roman)
+            var romanLength = roman.Length;
+
+            var numberList = new List<int>();
+            for (int i = 0; i < romanLength; i++)
             {
-                case "I":
-                    return 1;
-                case "II":
-                    return 2;
-                case "III":
-                    return 3;
-                case "IV":
-                    return 4;
-                case "V":
-                    return 5;
-                case "VI":
-                    return 6;
-                case "VII":
-                    return 7;
-                case "VIII":
-                    return 8;
-                case "IX":
-                    return 9;
-                case "X":
-                    return 10;
+                var temp = roman[i].ToString();
+
+                if (RomanToIntegerMap.TryGetValue(temp, out var value))
+                {
+                    numberList.Add(value);
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException(nameof(roman), "Invalid Roman numeral.");
+                }
             }
-            throw new ArgumentOutOfRangeException(nameof(roman), "Invalid Roman numeral.");
+
+            Console.WriteLine(string.Join(", ", numberList));
+
+            var total = 0;
+            if (numberList.Count == 1)
+            {
+                return numberList[0];
+            }
+            else
+            {
+                for (int i = 0; i < numberList.Count; i += 2)
+                {
+                    if (numberList[i] < numberList[i+1])
+                    {
+                        total += numberList[i + 1] - numberList[i]; 
+                    }
+                    else
+                    {
+                        total += numberList[i] + numberList[i + 1];
+                    }
+                }
+            }
+            
+
+            return total;
         }
     }
 }

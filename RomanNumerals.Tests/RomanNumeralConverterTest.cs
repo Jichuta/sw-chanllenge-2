@@ -29,6 +29,7 @@ namespace RomanNumerals.Tests
         [InlineData(30, "XXX")]
         [InlineData(34, "XXXIV")]
         [InlineData(40, "XL")]
+        [InlineData(44, "XLIV")]
         [InlineData(45, "XLV")]
         [InlineData(49, "XLIX")]
         [InlineData(50, "L")]
