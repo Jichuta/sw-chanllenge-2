@@ -8,15 +8,25 @@ namespace RomanNumerals
             {
                 return string.Empty;
             }
-            
-            if (number < 1 || number > 50)
+
+            if (number < 1 || number > 100)
             {
-                throw new ArgumentOutOfRangeException(nameof(number), "Number must be between 1 and 50.");
+                throw new ArgumentOutOfRangeException(nameof(number), "Number must be between 1 and 100.");
             }
 
-            if (number == 50)
+            if (number == 100)
             {
-                return "L";
+                return "C";
+            }
+
+            if (number >= 90)
+            {
+                return "XC" + ConvertToRoman(number - 90);
+            }
+
+            if (number >= 50)
+            {
+                return "L" + ConvertToRoman(number - 50);
             }
 
             if (number >= 40)

@@ -60,7 +60,7 @@ namespace RomanNumerals.Tests
         }
 
         [Theory]
-        [InlineData(51)]
+        [InlineData(101)]
         [InlineData(115)]
         public void ConvertToRoman_ShouldThrowExceptionForOutOfRangeNumbers(int number)
         {
