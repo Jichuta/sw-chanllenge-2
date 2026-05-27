@@ -4,7 +4,12 @@ namespace RomanNumerals
     {
         public static string ConvertToRoman(int number)
         {
-            if (number < 0 || number > 50)
+            if (number == 0)
+            {
+                return string.Empty;
+            }
+            
+            if (number < 1 || number > 50)
             {
                 throw new ArgumentOutOfRangeException(nameof(number), "Number must be between 1 and 50.");
             }

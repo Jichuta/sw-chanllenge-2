@@ -25,6 +25,8 @@ namespace RomanNumerals.Tests
         }
 
         [Theory]
+        [InlineData(11, "XI")]
+        [InlineData(30, "XXX")]
         [InlineData(34, "XXXIV")]
         [InlineData(40, "XL")]
         [InlineData(45, "XLV")]
