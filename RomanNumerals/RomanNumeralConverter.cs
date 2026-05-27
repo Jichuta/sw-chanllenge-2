@@ -135,7 +135,7 @@ namespace RomanNumerals
             {
                 return numberList[0];
             }
-            else
+            else if (numberList.Count % 2 == 0)
             {
                 for (int i = 0; i < numberList.Count; i += 2)
                 {
@@ -148,6 +148,22 @@ namespace RomanNumerals
                         total += numberList[i] + numberList[i + 1];
                     }
                 }
+            }
+            else
+            {
+                for (int i = 0; i < numberList.Count - 1; i += 2)
+                {
+                    if (numberList[i] < numberList[i + 1])
+                    {
+                        total += numberList[i + 1] - numberList[i];
+                    }
+                    else
+                    {
+                        total += numberList[i] + numberList[i + 1];
+                    }
+                }
+
+                total += numberList.Last();
             }
             
 
