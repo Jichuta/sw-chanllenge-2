@@ -1,3 +1,7 @@
 # obj and bin
 obj/
 bin/
+
+# Test coverage reports
+TestResults/
+coverage-report/
