@@ -40,7 +40,7 @@ Then generate the report in hmtl
 reportgenerator -reports:"TestResults\**\coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:Html
 ```
 Screenshot report
-![Test Coverage results](./docs/images/test-coverage.png)
+![Test Coverage results](./docs/images/test-coverage-report.png)
 
 ## Logic to accomplish the solution Interger to Roman
 We started with the convertion from integer to roman number
@@ -135,3 +135,11 @@ After some time we realize that we have to:
 4. if not, take the letter from single character dictionary, add that value to the total and increase the index by one
 
 Based on that analisis we completed successfully the conversion.
+
+## Extension to higher range 
+```characters
+L̅ = 50000
+C̅ = 100000
+D̅ = 500000
+M̅ = 1000000
+```
