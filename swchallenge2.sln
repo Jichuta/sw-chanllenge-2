@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumerals", "RomanNumer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumerals.Tests", "RomanNumerals.Tests\RomanNumerals.Tests.csproj", "{69285734-1A6C-473D-95B4-5EF6196AB667}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegerToRomanNumberConverter", "IntegerToRomanNumberConverter\IntegerToRomanNumberConverter.csproj", "{20E23DAA-81C0-4401-9596-001E50150AA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{69285734-1A6C-473D-95B4-5EF6196AB667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69285734-1A6C-473D-95B4-5EF6196AB667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69285734-1A6C-473D-95B4-5EF6196AB667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E23DAA-81C0-4401-9596-001E50150AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E23DAA-81C0-4401-9596-001E50150AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E23DAA-81C0-4401-9596-001E50150AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E23DAA-81C0-4401-9596-001E50150AA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

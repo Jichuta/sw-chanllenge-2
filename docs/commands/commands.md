@@ -11,3 +11,10 @@ dotnet sln .\swchallenge2.sln add .\RomanNumerals.Tests\RomanNumerals.Tests.cspr
 ```bash
 dotnet add .\RomanNumerals.Tests\RomanNumerals.Tests.csproj reference .\RomanNumerals\RomanNumerals.csproj
 ```
+
+## Add Console App to convert from Integer to roman
+```bash
+dotnet new console -n IntegerToRomanNumberConverter
+dotnet sln .\swchallenge2.sln add .\IntegerToRomanNumberConverter\IntegerToRomanNumberConverter.csproj
+dotnet add .\IntegerToRomanNumberConverter\IntegerToRomanNumberConverter.csproj reference .\RomanNumerals\RomanNumerals.csproj 
+```
