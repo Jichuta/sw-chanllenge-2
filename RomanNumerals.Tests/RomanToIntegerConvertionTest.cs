@@ -40,5 +40,14 @@ namespace RomanNumerals.Tests
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [InlineData("A")]
+        [InlineData("ABC")]
+        public void ConvertToInteger_ShouldThrowExceptionForInvalidRomanNumeral(string roman)
+        {
+            // Act & Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => RomanNumeralConverter.ConvertToInteger(roman));
+        }
     }
 }
