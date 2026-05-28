@@ -13,7 +13,7 @@ namespace RomanNumerals
             ("I", 1)
         };
 
-        public static readonly Dictionary<string, int> RomanToIntegerMap = new Dictionary<string, int>
+        public static readonly Dictionary<string, int> RomanToIntegerSingleMap = new Dictionary<string, int>
         {
             { "I", 1 },
             { "V", 5 },
@@ -22,6 +22,16 @@ namespace RomanNumerals
             { "C", 100 },
             { "D", 500 },
             { "M", 1000 }
+        };
+
+        public static readonly Dictionary<string, int> RomanToIntegerTwinMap = new Dictionary<string, int>
+        {
+            { "IV", 4 },
+            { "IX", 9 },
+            { "XL", 40 },
+            { "XC", 90 },    
+            { "CD", 400 },
+            { "CM", 900 },
         };
 
         public static string ConvertToRoman(int number)
@@ -111,59 +121,32 @@ namespace RomanNumerals
 
         public static int ConvertToInteger(string roman)
         {
-            var romanLength = roman.Length;
-
-            var numberList = new List<int>();
-            for (int i = 0; i < romanLength; i++)
-            {
-                var temp = roman[i].ToString();
-
-                if (RomanToIntegerMap.TryGetValue(temp, out var value))
-                {
-                    numberList.Add(value);
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(nameof(roman), "Invalid Roman numeral.");
-                }
-            }
-
-            Console.WriteLine(string.Join(", ", numberList));
-
             var total = 0;
-            if (numberList.Count == 1)
+            var index = 0;
+
+            while (index < roman.Length)
             {
-                return numberList[0];
-            }
-            else if (numberList.Count % 2 == 0)
-            {
-                for (int i = 0; i < numberList.Count; i += 2)
+                if (index + 1 < roman.Length)
                 {
-                    if (numberList[i] < numberList[i+1])
+                    var twin = roman.Substring(index, 2);
+                    if (RomanToIntegerTwinMap.TryGetValue(twin, out var twinValue))
                     {
-                        total += numberList[i + 1] - numberList[i]; 
-                    }
-                    else
-                    {
-                        total += numberList[i] + numberList[i + 1];
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < numberList.Count - 1; i += 2)
-                {
-                    if (numberList[i] < numberList[i + 1])
-                    {
-                        total += numberList[i + 1] - numberList[i];
-                    }
-                    else
-                    {
-                        total += numberList[i] + numberList[i + 1];
+                        total += twinValue;
+                        index += 2;
+                        continue;
                     }
                 }
 
-                total += numberList.Last();
+                var oneCharacter = roman.Substring(index, 1);
+
+                if (RomanToIntegerSingleMap.TryGetValue(oneCharacter, out var singleValue))
+                {
+                    total += singleValue;
+                    index++;
+                    continue;
+                }
+            
+                throw new ArgumentOutOfRangeException(nameof(roman), "Invalid Roman numeral.");
             }
             
 
