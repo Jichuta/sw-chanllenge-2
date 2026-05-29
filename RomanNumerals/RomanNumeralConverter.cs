@@ -40,6 +40,28 @@ namespace RomanNumerals
             { "CM", 900 },
         };
 
+        public static readonly Dictionary<string, int> RomanToIntegerComboMap = new Dictionary<string, int>
+        {
+            { "III", 3 },
+            { "XXX", 30 },
+            { "CCC", 300 },
+        };
+
+        public static readonly string[] WrongRomanTwinCombos = new string[]
+        {
+            "VV",
+            "LL",
+            "DD",
+        };
+
+        public static readonly string[] WrongRomanFourthCombos = new string[]
+        {
+            "IIII",
+            "XXXX",
+            "CCCC",
+            "MMMM"
+        };
+
         public static string ConvertToRoman(int number)
         {
             if (number == 0)
@@ -68,11 +90,24 @@ namespace RomanNumerals
             var total = 0;
             var index = 0;
 
+            var length = roman.Length;
+
+            if(length >= 4 && WrongRomanFourthCombos.Any(combo => roman.Contains(combo)))
+            {
+                throw new ArgumentOutOfRangeException(nameof(roman), "Invalid Roman numeral.");
+            }
+
             while (index < roman.Length)
             {
                 if (index + 1 < roman.Length)
                 {
                     var twin = roman.Substring(index, 2);
+
+                    if (WrongRomanTwinCombos.Contains(twin))
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(roman), "Invalid Roman numeral.");
+                    }
+
                     if (RomanToIntegerTwinMap.TryGetValue(twin, out var twinValue))
                     {
                         total += twinValue;
