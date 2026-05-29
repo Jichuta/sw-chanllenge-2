@@ -44,6 +44,10 @@ namespace RomanNumerals.Tests
         [Theory]
         [InlineData("A")]
         [InlineData("ABC")]
+        [InlineData("IIII")]
+        [InlineData("XXXX")]
+        [InlineData("VV")]
+        [InlineData("LL")]
         public void ConvertToInteger_ShouldThrowExceptionForInvalidRomanNumeral(string roman)
         {
             // Act & Assert
