@@ -42,6 +42,18 @@ reportgenerator -reports:"TestResults\**\coverage.cobertura.xml" -targetdir:"cov
 Screenshot report
 ![Test Coverage results](./docs/images/test-coverage-report.png)
 
+## Console Applications to see the library working
+Command to run the Integer to Roman number converter application
+```bash
+cd .\IntegerToRomanNumberConverter\
+dotnet run
+```
+Command to run the Roman to Integrr number converter application
+```bash
+cd .\RomanToIntegerNumberConverter\
+dotnet run
+```
+
 ## Logic to accomplish the solution Interger to Roman
 We started with the convertion from integer to roman number
 
