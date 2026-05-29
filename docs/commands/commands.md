@@ -18,3 +18,10 @@ dotnet new console -n IntegerToRomanNumberConverter
 dotnet sln .\swchallenge2.sln add .\IntegerToRomanNumberConverter\IntegerToRomanNumberConverter.csproj
 dotnet add .\IntegerToRomanNumberConverter\IntegerToRomanNumberConverter.csproj reference .\RomanNumerals\RomanNumerals.csproj 
 ```
+
+## Add Console App to convert from Roman to Integer
+```bash
+dotnet new console -n RomanToIntegerNumberConverter
+dotnet sln .\swchallenge2.sln add .\RomanToIntegerNumberConverter\RomanToIntegerNumberConverter.csproj
+dotnet add .\RomanToIntegerNumberConverter\RomanToIntegerNumberConverter.csproj reference .\RomanNumerals\RomanNumerals.csproj 
+```
